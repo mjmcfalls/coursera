@@ -1,7 +1,10 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
+	"os"
+	"strconv"
 	"strings"
 )
 
@@ -33,11 +36,17 @@ func Swap(items []int, index int) {
 func main() {
 	// prompt the user to type in a sequence of up to 10 integers. The program
 	// should print the integers out on one line, in sorted order, from least to greatest
-	// items := []int{48, 39, 12, 4, 51, 100, 28, 8, 30, 85}
+	var intitems []int
+
+	reader := bufio.NewReader(os.Stdin)
 	fmt.Printf("Enter up to 10 numbers separated by a space: ")
 	text, _ := reader.ReadString('\n')
-	name := strings.TrimSuffix(text, "\n")
-
-	BubbleSort(items)
-	fmt.Println(items)
+	text = strings.TrimSuffix(text, "\n")
+	stritems := strings.Fields(text)
+	for _, item := range stritems {
+		tempInt, _ := strconv.Atoi(item)
+		intitems = append(intitems, tempInt)
+	}
+	BubbleSort(intitems)
+	fmt.Println(intitems)
 }
