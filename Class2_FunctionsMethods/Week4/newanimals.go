@@ -143,10 +143,13 @@ Loop:
 				switch stritems[2] {
 				case "bird":
 					animals[stritems[1]] = &bird{food: "worms", locomotion: "fly", noise: "peep"}
+					fmt.Println("Created it!")
 				case "snake":
 					animals[stritems[1]] = &snake{food: "mice", locomotion: "slither", noise: "hsss"}
+					fmt.Println("Created it!")
 				case "cow":
 					animals[stritems[1]] = &cow{food: "grass", locomotion: "walk", noise: "moo"}
+					fmt.Println("Created it!")
 				}
 
 			}
